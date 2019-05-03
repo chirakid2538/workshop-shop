@@ -8,8 +8,8 @@ class CartItemList extends React.Component {
         return (
             <Box>
                 {
-                    cartItems.map((item, index) => (
-                        <Box key={index}>
+                    cartItems.map((item) => (
+                        <Box key={item.productId}>
                             {item.name} X {item.amount}
                         </Box>
                     ))
