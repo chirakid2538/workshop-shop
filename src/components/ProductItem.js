@@ -5,14 +5,12 @@ import { Shop } from 'grommet-icons';
 import { connect } from 'react-redux';
 class ProductItem extends React.Component {
     handleAddToCart = () => {
-        const { addItem, id, name } = this.props;
-        addItem({
-            'id': id, 'name': name
-        });
+        const { addCartItemsAsync, id } = this.props;
+        addCartItemsAsync(id);
     }
     render() {
 
-        const { name, description, image, price } = this.props;
+        const { name, description, image, price  } = this.props;
         return (
             <Box
                 basis="medium"
@@ -49,7 +47,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        addItem: dispatch.cart.addItem
+        addCartItemsAsync: dispatch.cart.addCartItemsAsync
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ProductItem);
